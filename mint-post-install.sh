@@ -30,8 +30,8 @@ sudo usermod -aG docker $USER
 ### Install VSCode + Fira Code Font
 sudo apt install -y code fonts-firacode
 ### Install NVM
-curl -o https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
-source ~/.bash_profile
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+source ~/.profile
 ### Install NodeJs
 #curl -sL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 #sudo apt-get install -y nodejs
@@ -52,7 +52,9 @@ sudo snap install -y chromium
 ### Install Anydesk
 sudo apt install -y anydesk
 ### Install XRDP
-sudo apt install -y xrdp xorgxrdp freerdp-x11 vnc*
+sudo apt install -y xrdp xorgxrdp vnc*
+echo env -u SESSION_MANAGER -u DBUS_SESSION_BUS_ADDRESS cinnamon-session > ~/.xsession
+sudo systemctl enable xrdp && sudo systemctl start xrdp
 ### Install OpenVPN
 echo 'deb http://security.ubuntu.com/ubuntu bionic-security main' >> /etc/apt/sources.list
 sudo apt update && apt-cache policy libssl1.0-dev

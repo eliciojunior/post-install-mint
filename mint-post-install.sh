@@ -23,7 +23,7 @@ wget -nc https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add winehq.
 sudo apt-add-repository "deb https://dl.winehq.org/wine-builds/ubuntu/ $(. /etc/os-release; echo "$UBUNTU_CODENAME") main"
 ### Atualização e Instalação de pacotes principais
 sudo apt update -y && sudo apt upgrade -y
-sudo apt install -y wget curl git cmake build-essential mint-meta-codecs autoconf pkg-config apt-transport-https ca-certificates software-properties-common
+sudo apt install -y openssh-server wget curl git cmake build-essential mint-meta-codecs autoconf pkg-config apt-transport-https ca-certificates software-properties-common
 ### Install Docker + Docker-Compose
 sudo apt install -y docker-ce docker-compose
 sudo usermod -aG docker $USER
@@ -39,7 +39,7 @@ nvm install node
 ### Install Notepadqq
 sudo apt install -y notepadqq
 ### Configuração do Git
-echo "Digite seu nome:"; read nome
+echo "Digite seu nome(GitHub):"; read nome
 echo "Digite seu email(GitHub):"; read email
 sudo git config --global user.name '$nome'
 sudo git config --global user.email $email
@@ -51,6 +51,8 @@ sudo apt install -y snapd
 sudo snap install -y chromium
 ### Install Anydesk
 sudo apt install -y anydesk
+### Install XRDP
+sudo apt install -y xrdp xorgxrdp freerdp-x11 vnc*
 ### Install OpenVPN
 echo 'deb http://security.ubuntu.com/ubuntu bionic-security main' >> /etc/apt/sources.list
 sudo apt update && apt-cache policy libssl1.0-dev
